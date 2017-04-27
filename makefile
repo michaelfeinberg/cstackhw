@@ -1,4 +1,4 @@
-OBJECTS= main.o draw.o display.o matrix.o parser.o
+OBJECTS= main.o draw.o display.o matrix.o parser.o stack.o
 CFLAGS= -Wall
 LDFLAGS= -lm
 CC= gcc
@@ -18,9 +18,11 @@ dsiplay.o: display.c display.h ml6.h matrix.h
 matrix.o: matrix.c matrix.h
 	$(CC) $(CFLAGS) -c matrix.c
 
+stack.o: stack.c stack.h
+	$(CC) $(CFLAGS) -c stack.c
+
 parser.o: parser.c parser.h matrix.h draw.h display.h ml6.h
 	$(CC) $(CFLAGS) -c parser.c
-
 run: all
 	./main script
 clean:
